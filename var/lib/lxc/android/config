@@ -3,6 +3,8 @@ lxc.uts.name = armhf
 
 lxc.net.0.type = none
 
+lxc.namespace.keep = net user
+
 lxc.tty.dir = lxc
 lxc.tty.max  = 4
 lxc.pty.max = 1024
