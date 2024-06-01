@@ -1,7 +1,15 @@
 #!/bin/bash
 
+# Prioritize FuriOS slots over cmdline
+if [ -f /var/lib/furios/slot ]; then
+    furios_slot=$(</var/lib/furios/slot)
+    if [ "${furios_slot}" == "_a" ] || [ "${furios_slot}" == "_b" ]; then
+        ab_slot_suffix="${furios_slot}"
+    fi
+fi
+
 # On systems with A/B partition layout, current slot is provided via cmdline parameter.
-if [ -e /proc/bootconfig ]; then
+if [ -z "$ab_slot_suffix" ] && [ -e /proc/bootconfig ]; then
     ab_slot_suffix=$(grep -o 'androidboot\.slot_suffix = ".."' /proc/bootconfig | cut -d '"' -f2)
 fi
 
