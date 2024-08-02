@@ -1,0 +1,16 @@
+[Unit]
+Description=Mount mmcblk device %i at /media/furios
+BindsTo=dev-%i.device
+After=dev-%i.device
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/mkdir -p /media/furios/%i
+ExecStart=/bin/mount /dev/%i /media/furios/%i
+ExecStart=/bin/chown furios:furios /media/furios/%i
+ExecStart=/bin/chmod 755 /media/furios/%i
+ExecStop=/bin/umount /media/furios/%i
+
+[Install]
+WantedBy=multi-user.target
