@@ -1,15 +1,17 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: lxc-android
-Source: https://github.com/Halium/lxc-android
+Source: https://github.com/furilabs/lxc-android
 
 Files: *
 Copyright: 2017 Halium Project & contributors
            2020-2023, Droiian Project <info@droidian.org>
+           2025, Bardia Moshiri <bardia@furilabs.com>
 License: GPL-2+
 
 Files: debian/*
 Copyright: 2017 Bhushan Shah <bshah@kde.org>
            2020-2023, Droiian Project <info@droidian.org>
+           2025, Bardia Moshiri <bardia@furilabs.com>
 License: GPL-2+
 
 License: GPL-2+
