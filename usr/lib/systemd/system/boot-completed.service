@@ -1,5 +1,5 @@
 [Unit]
-Description=Create stamp file to signal that the Droidian boot has been completed
+Description=Create stamp file to signal that system boot has been completed
 Requires=lxc@android.service
 After=phosh.service
 
