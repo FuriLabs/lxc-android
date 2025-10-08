@@ -1,0 +1,2 @@
+# Disallow loading PulseAudio ALSA module for card0, we want a droid-card
+KERNEL=="card0", SUBSYSTEM=="sound", ENV{PULSE_IGNORE}="1"
