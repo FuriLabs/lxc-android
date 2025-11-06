@@ -1,0 +1,5 @@
+#!/bin/sh
+set -e
+
+# Intentionally left blank to make debhelper not generate its own
+exit 0
