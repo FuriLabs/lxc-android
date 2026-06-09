@@ -2,7 +2,7 @@
 Description=mount android parts
 After=systemd-udev-settle.service local-fs.target
 Before=lxc@android.service
-Wants=systemd-udev-settle.service
+Wants=systemd-udevd.service
 
 [Service]
 Type=oneshot
