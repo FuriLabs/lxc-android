@@ -1,11 +1,19 @@
 #!/bin/sh
 
 /usr/bin/setprop sys.powerctl shutdown
-lxc-wait -n android -s "STOPPED" -t 30
 
-# Teardown mapped super partition
-if [ -e "/dev/disk/by-partlabel/super" ]; then
-	dmsetup remove /dev/mapper/dynpart-* || true
+if ! lxc-wait -n android -s "STOPPED" -t 30; then
+    lxc-stop -n android -k
 fi
+
+# Clear stale Android property areas
+if [ -d "/dev/__properties__" ]; then
+    find /dev/__properties__ -mindepth 1 -delete
+fi
+
+# Unmount APEX and any stacked mounts
+while mountpoint -q /apex; do
+    umount -l /apex
+done
 
 exit 0
